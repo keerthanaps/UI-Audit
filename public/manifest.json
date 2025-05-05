@@ -1,0 +1,18 @@
+{
+    "manifest_version": 3,
+    "name": "UI Audit",
+    "description": "Audit webpages for accessibility and UX issues.",
+    "version": "1.0",
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": "icons/icon48.png"
+    },
+    "permissions": ["scripting", "activeTab"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "host_permissions": ["<all_urls>"]
+  }
+  
+  
+  
