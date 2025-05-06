@@ -1,3 +1,4 @@
+
 export function runAuditInTab() {
     const issues = [];
   //Images with no alt text
@@ -180,3 +181,61 @@ if (document.documentElement.scrollWidth > window.innerWidth + 5) {
     return issues;
   }
   
+export function downloadHTMLReport(issues) {
+    const html = `
+      <html>
+      <head>
+        <title>UI Audit Report</title>
+        <style>
+          body { font-family: Arial, sans-serif; padding: 20px; background-color: #fafafa; }
+          h1 { color: #333; }
+          .issue { background: white; border: 1px solid #ddd; border-left: 4px solid #e91e63; margin-bottom: 16px; padding: 12px; border-radius: 6px; }
+          .type { font-weight: bold; color: #e91e63; }
+          pre { background: #f5f5f5; padding: 8px; border-radius: 4px; overflow-x: auto; }
+        </style>
+      </head>
+      <body>
+        <h1>UI & Accessibility Audit Report</h1>
+        <p>Total Issues Found: ${issues.length}</p>
+        ${issues.map(issue => `
+          <div class="issue">
+            <div class="type">${issue.type}</div>
+            <div><strong>Message:</strong> ${escapeHTML(issue.message)}</div>
+            <div><strong>HTML Snippet:</strong><pre>${escapeHTML(issue.element)}</pre></div>
+          </div>
+        `).join('')}
+      </body>
+      </html>
+    `;
+  
+    const blob = new Blob([html], { type: "text/html" });
+    const url = URL.createObjectURL(blob);
+    triggerDownload(url, 'ui-accessibility-audit-report.html');
+     
+  }
+  
+  export function downloadJSONReport(issues) {
+    const json = JSON.stringify(issues, null, 2);
+    const blob = new Blob([json], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    triggerDownload(url, 'ui-accessibility-audit-report.json');
+     
+  }
+  
+  function triggerDownload(url, filename) {
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = filename;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  }
+  
+  function escapeHTML(str) {
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+  
+
