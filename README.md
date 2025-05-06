@@ -1,6 +1,6 @@
 # 🕵️ UI Audit - Chrome Extension
 
-UI Audit is a lightweight Chrome Extension that scans the currently active webpage for common **accessibility** and **UX issues**. It performs checks like:
+UI Audit is a Chrome Extension that scans the currently active webpage for common **accessibility** and **UX issues**. It performs checks like:
 
 - Missing `alt` text on images
 - Improper heading structure
