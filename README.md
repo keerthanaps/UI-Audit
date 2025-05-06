@@ -85,5 +85,6 @@ npm run build
 ┣ 📄 vite.config.js
 ┗ 📄 README.md
 
+```
 ##
 Created with ❤️ by Keerthana.
