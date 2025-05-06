@@ -51,34 +51,39 @@ npm run build
 ```
 ### 4.Load extension into chrome
 
--Open Chrome and go to `chrome://extensions/`
--Enable Developer mode (toggle in the top-right)
--Click Load unpacked
--Select the dist/ directory from your project
+- Open Chrome and go to `chrome://extensions/`
+- Enable Developer mode (toggle in the top-right)
+- Click Load unpacked
+- Select the dist/ directory from your project
 
 ### 5. Use the extension
--Navigate to any webpage
--Click the 🕵️ UI Audit icon in your extensions bar
--Hit the "Run Audit" button
--View issues or export as PDF
+- Navigate to any webpage
+- Click the 🕵️ UI Audit icon in your extensions bar
+- Hit the "Run Audit" button
+- View issues or export as PDF
 
 ## Folder Structure
 
-ui-audit-extension/
-│
-├── public/
-│   └── icons/           # Extension icon assets
-│
-├── src/
-│   ├── components/      # React components (Report UI, etc.)
-│   ├── utils/           # Core audit logic (auditFunctions.js)
-│   ├── App.jsx          # Main React component
-│   ├── main.jsx         # React DOM entry point
-│   └── style.css        # Basic CSS
-│
-├── manifest.json        # Chrome Extension manifest (v3)
-├── vite.config.js       # Vite config
-├── package.json
-└── README.md
+```plaintext
+📦 ui-audit
+┣ 📂 public
+┃ ┗ 📂 icons
+┃   ┣ 📄 icon16.png
+┃   ┣ 📄 icon48.png
+┃   ┗ 📄 icon128.png
+┣ 📂 src
+┃ ┣ 📂 assets
+┃ ┣ 📂 components
+┃ ┃ ┗ 📄 Report.jsx
+┃ ┣ 📂 utils
+┃ ┃ ┗ 📄 auditFunctions.js
+┃ ┣ 📄 App.jsx
+┃ ┣ 📄 main.jsx
+┃ ┗ 📄 index.css
+┣ 📄 manifest.json
+┣ 📄 package.json
+┣ 📄 vite.config.js
+┗ 📄 README.md
+
 ##
 Created with ❤️ by Keerthana.
