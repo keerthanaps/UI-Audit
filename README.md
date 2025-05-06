@@ -1,28 +1,52 @@
 # 🕵️ UI Audit - Chrome Extension
 
-A lightweight Chrome extension that audits the current web page for basic accessibility and UX issues, such as missing alt attributes, improper heading structure, misuse of placeholder text, and more.
+# UI Audit Chrome Extension
 
-## 🚀 Features
+UI Audit is a lightweight Chrome Extension that scans the currently active webpage for common **accessibility** and **UX issues**. It performs checks like:
 
-- Analyze the current tab for:
-  - Missing alt attributes on images
-  - Heading hierarchy issues (h1 → h6)
-  - Improper placeholder usage
-  - Non-descriptive links
-  - Deprecated HTML tags
-  - Tabindex misuse
-  - Missing focusable elements
-- Download audit report as PDF
-- Clean and modern UI
-- Runs entirely client-side
-- React + Vite-based popup UI
+- Missing `alt` text on images
+- Improper heading structure
+- Tabindex misuse
+- Non-focusable interactive elements
+- Use of placeholder instead of labels
+- Non-descriptive link text (e.g., "click here")
+- Deprecated HTML tags
+- Inline styles
+- Poor color contrast
+- Sticky/fixed elements overlapping content
+- Missing `<title>` or `<meta name="description">`
+- Horizontal scrolling (responsive design issues)
 
----
+## Features
 
-## 📦 Installation (Development)
+- Run audit on the current tab
+- View all identified issues in a scrollable list
+- Export the audit report as a downloadable PDF
+- Clean and minimal popup UI
 
-1. **Clone the repo**
+## Tech Stack
+
+- React
+- Vite
+- Chrome Extension APIs
+- Basic CSS styling
+- [html2pdf.js](https://github.com/eKoopmans/html2pdf) for PDF generation
+
+## Getting Started
+
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/ui-audit-extension.git
+git clone https://github.com/your-username/ui-audit-extension.git
 cd ui-audit-extension
+
+### 2. Install dependencies
+
+```bash
+npm install
+
+### 3. Build the extension
+
+```bash
+npm run build
+
